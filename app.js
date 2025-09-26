@@ -14,7 +14,7 @@ let speed = 1000;
 let totalScore = 0;
 let minDistance = 0;
 let isOver = true;
-let deadTime = 5000;
+let deadTime = 7000;
 let pauseDelay = 30000;
 let transitionTime = 5;
 let started;
@@ -36,7 +36,7 @@ function moveRandom() {
     for (let i = 0; i < cloud.length; i++) {
         let lr = ['-100px', '100px'];
         for (let swingX = 0; swingX < lr.length; swingX++) {
-
+            // will work here later..
 
         }
         let randomX = Math.floor(Math.random() * 350);
@@ -84,7 +84,7 @@ function deadTimeCall() {
     setTimeout(function () {
         timeOut.style.boxShadow = 'inset -400px 0 0 white';
         timeOut.style.backgroundColor = ' rgb(255, 66, 66)';
-        timeOut.style.transition = 'box-shadow 5s linear, background-color 5s linear';
+        timeOut.style.transition = `box-shadow ${deadTime / 1000}s linear, background-color ${deadTime / 1000}s linear`;
     }, 100);
 }
 
@@ -96,9 +96,11 @@ steady.addEventListener('click', function () {
     scoreElement.innerHTML = totalScore;
     result.innerHTML = totalScore;
     clearInterval(deadTimeInterval);
-    deadTime = 5000;
+    deadTime = 7000;
     deadTimeCall();
     sppedControl();
+
+    console.log(speed);
 
 });
 
@@ -139,14 +141,18 @@ gameOverMenu.addEventListener('click', function () {
 })
 
 function startGame() {
+    clearInterval(started);
+    speed = 1000;
     totalScore = 0;
     scoreElement.innerHTML = totalScore;
     result.innerHTML = totalScore;
     startMenu.style.top = '-50%';
     menuContainer.style.background = 'rgba(0,0,0,0)';
-    started = setInterval(function () {
-        randomPositions();
-    }, speed);
+    setTimeout(function () {
+        started = setInterval(function () {
+            randomPositions();
+        }, speed);
+    }, 100);
     setTimeout(function () {
         menuContainer.style.display = 'none';
     }, 400);
@@ -175,18 +181,6 @@ if (isOver) {
     startMenu.style.top = '50%';
 }
 
-// controlling the speed
-// speedUp = setInterval(function () {
-//     console.log(speed);
-//     if (totalScore >= 60) {
-//         speed = 500;
-//         console.log(speed);
-//     } else if (totalScore >= 30) {
-//         speed = 1000;
-//         console.log(speed);
-//     }
-
-// }, 1000)
 
 
 
