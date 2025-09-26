@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>The Bursting Game!</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <img draggable="false" class='logo' src="logo2.png">
+        <!-- <p class="high-score-el">Highest Score:<br>
+            <span id="highest-score">0</span><br>
+            Last Scored:<br>
+            <span id="last-score">0</span><br>
+            <span class="clear-scores">Clear</span>
+        </p> -->
+        <div class="clouds-container">
+            <img draggable="false" class="clouds" src="cloud.png" alt="">
+            <img draggable="false" class="clouds" src="cloud.png" alt="">
+            <img draggable="false" class="clouds" src="cloud.png" alt="">
+            <img draggable="false" class="clouds" src="cloud.png" alt="">
+            <img draggable="false" class="clouds" src="cloud.png" alt="">
+        </div>
+        <div class="balloon-container">
+            <img class="balloon steady" draggable="false" src="s.gif">
+            <img class="balloon burst" draggable="false" src="b2.gif">
+        </div>
+        <p class="score">Score: <span id="totalScore">0</span></p>
+        <div class="timeout"></div>
+
+    </div>
+    <div class="menu-container">
+
+        <img src="start.png" alt="" draggale="false" class="pop-menu start">
+        <h2 class="score-board">You Scored: <span id="result">0</span></h2>
+        <img src="gover.png" alt="" draggale="false" class="pop-menu gover">
+    </div>
+</body>
+<script src="app.js"></script>
+
+</html>
